@@ -10,11 +10,9 @@ class QueryBuilder
     }
     public function selectAll($table)
     {
-        $statement = $this->pdo->prepare("select * from {$table} where completed = :completed");
-         
+        $statement = $this->pdo->prepare("select * from {$table}");
         
-            $statement->execute(['completed' => true]);
-
+            $statement->execute();
 
         return $statement->fetchAll(PDO::FETCH_CLASS);
     }
